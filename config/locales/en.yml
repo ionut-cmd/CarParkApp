@@ -32,3 +32,16 @@
 en:
   app_title: Car Park
   app_description: Find your perfec parking space
+
+  home:
+    home:
+      title: Car Park Booking Services
+      welcome: Welcome!
+
+    contact:
+      title: Contact Us
+      contact_us: Complete to get in touch.
+
+    request_contact:
+      no_email: You must suply an email address
+      email_sent: Thank you. We will be in touch shortly
