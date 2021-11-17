@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
+  location: MyString
+  bay_type: MyString
   vehicle_registration: MyString
-  start: 2021-11-17 15:49:32
+  start: 2021-11-17 16:28:49
   duration: 1
 
 two:
-  type: 
+  location: MyString
+  bay_type: MyString
   vehicle_registration: MyString
-  start: 2021-11-17 15:49:32
+  start: 2021-11-17 16:28:49
   duration: 1

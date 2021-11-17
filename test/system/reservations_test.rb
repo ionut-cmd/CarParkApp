@@ -14,9 +14,10 @@ class ReservationsTest < ApplicationSystemTestCase
     visit reservations_url
     click_on "New Reservation"
 
+    fill_in "Bay type", with: @reservation.bay_type
     fill_in "Duration", with: @reservation.duration
+    fill_in "Location", with: @reservation.location
     fill_in "Start", with: @reservation.start
-    fill_in "Type", with: @reservation.type
     fill_in "Vehicle registration", with: @reservation.vehicle_registration
     click_on "Create Reservation"
 
@@ -28,9 +29,10 @@ class ReservationsTest < ApplicationSystemTestCase
     visit reservations_url
     click_on "Edit", match: :first
 
+    fill_in "Bay type", with: @reservation.bay_type
     fill_in "Duration", with: @reservation.duration
+    fill_in "Location", with: @reservation.location
     fill_in "Start", with: @reservation.start
-    fill_in "Type", with: @reservation.type
     fill_in "Vehicle registration", with: @reservation.vehicle_registration
     click_on "Update Reservation"
 

@@ -3,7 +3,8 @@
 %table
   %thead
     %tr
-      %th Type
+      %th Location
+      %th Bay type
       %th Vehicle registration
       %th Start
       %th Duration
@@ -14,7 +15,8 @@
   %tbody
     - @reservations.each do |reservation|
       %tr
-        %td= reservation.type
+        %td= reservation.location
+        %td= reservation.bay_type
         %td= reservation.vehicle_registration
         %td= reservation.start
         %td= reservation.duration

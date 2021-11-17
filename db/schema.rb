@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_155223) do
+ActiveRecord::Schema.define(version: 2021_11_17_162945) do
 
   create_table "reservations", force: :cascade do |t|
-    t.string "type", null: false
+    t.string "location", null: false
+    t.string "bay_type", null: false
     t.string "vehicle_registration", null: false
-    t.datetime "start"
+    t.time "start", null: false
     t.integer "duration", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["location"], name: "index_reservations_on_location", unique: true
   end
 
 end
