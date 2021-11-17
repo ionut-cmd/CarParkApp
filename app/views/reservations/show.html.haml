@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Bay type:
+  = @reservation.bay_type
+%p
+  %b Vehicle registration:
+  = @reservation.vehicle_registration
+%p
+  %b Start time:
+  = @reservation.start_time
+%p
+  %b Duration:
+  = @reservation.duration
+
+= link_to 'Edit', edit_reservation_path(@reservation)
+\|
+= link_to 'Back', reservations_path

@@ -1,0 +1,27 @@
+%h1 Listing reservations
+
+%table
+  %thead
+    %tr
+      %th Bay type
+      %th Vehicle registration
+      %th Start time
+      %th Duration
+      %th
+      %th
+      %th
+
+  %tbody
+    - @reservations.each do |reservation|
+      %tr
+        %td= reservation.bay_type
+        %td= reservation.vehicle_registration
+        %td= reservation.start_time
+        %td= reservation.duration
+        %td= link_to 'Show', reservation
+        %td= link_to 'Edit', edit_reservation_path(reservation)
+        %td= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Reservation', new_reservation_path
