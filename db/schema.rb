@@ -10,6 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_11_17_155223) do
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "type", null: false
+    t.string "vehicle_registration", null: false
+    t.datetime "start"
+    t.integer "duration", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
