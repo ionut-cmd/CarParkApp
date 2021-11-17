@@ -8,18 +8,18 @@
 
   .field
     = f.label :location
-    = f.text_field :location
+    = f.text_field :location, class: "form-control", style: "width: auto"
   .field
     = f.label :bay_type
-    = f.text_field :bay_type
+    = f.text_field :bay_type, class: "form-control", style: "width: auto"
   .field
     = f.label :vehicle_registration
-    = f.text_field :vehicle_registration
+    = f.text_field :vehicle_registration, class: "form-control", style: "width: auto"
   .field
     = f.label :start
-    = f.time_select :start
+    = f.time_select :start, class: "form-control", style: "width: auto"
   .field
     = f.label :duration
-    = f.number_field :duration
+    = f.number_field :duration, class: "form-control", style: "width: auto"
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-light active"

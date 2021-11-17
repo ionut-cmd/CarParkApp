@@ -1,7 +1,7 @@
 %h1 Listing reservations
 
-%table
-  %thead
+%table.table.table-hover
+  %thead.table-dark
     %tr
       %th Location
       %th Bay type
@@ -18,7 +18,7 @@
         %td= reservation.location
         %td= reservation.bay_type
         %td= reservation.vehicle_registration
-        %td= reservation.start
+        %td= reservation.start.strftime("%H:%M")
         %td= reservation.duration
         %td= link_to 'Show', reservation
         %td= link_to 'Edit', edit_reservation_path(reservation)
@@ -26,4 +26,4 @@
 
 %br
 
-= link_to 'New Reservation', new_reservation_path
+= link_to 'New Reservation', new_reservation_path, class: "btn btn-light active"

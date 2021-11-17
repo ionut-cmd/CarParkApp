@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_11_17_162945) do
     t.integer "duration", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["location"], name: "index_reservations_on_location", unique: true
+    t.index ["location"], name: "index_reservations_on_location"
   end
 
 end
