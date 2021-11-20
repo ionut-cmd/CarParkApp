@@ -1,0 +1,25 @@
+= form_for @carpark do |f|
+  - if @carpark.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@carpark.errors.count, "error")} prohibited this carpark from being saved:"
+      %ul
+        - @carpark.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :location
+    = f.text_field :location
+  .field
+    = f.label :available
+    = f.number_field :available
+  .field
+    = f.label :total
+    = f.number_field :total
+  .field
+    = f.label :green
+    = f.number_field :green
+  .field
+    = f.label :disabled
+    = f.number_field :disabled
+  .actions
+    = f.submit 'Save'

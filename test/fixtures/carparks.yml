@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  available: 1
+  total: 1
+  green: 1
+  disabled: 1
+
+two:
+  location: MyString
+  available: 1
+  total: 1
+  green: 1
+  disabled: 1

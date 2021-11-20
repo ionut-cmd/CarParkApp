@@ -1,0 +1,29 @@
+%h1 Listing carparks
+
+%table
+  %thead
+    %tr
+      %th Location
+      %th Available
+      %th Total
+      %th Green
+      %th Disabled
+      %th
+      %th
+      %th
+
+  %tbody
+    - @carparks.each do |carpark|
+      %tr
+        %td= carpark.location
+        %td= carpark.available
+        %td= carpark.total
+        %td= carpark.green
+        %td= carpark.disabled
+        %td= link_to 'Show', carpark
+        %td= link_to 'Edit', edit_carpark_path(carpark)
+        %td= link_to 'Destroy', carpark, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Carpark', new_carpark_path

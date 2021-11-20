@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Location:
+  = @carpark.location
+%p
+  %b Available:
+  = @carpark.available
+%p
+  %b Total:
+  = @carpark.total
+%p
+  %b Green:
+  = @carpark.green
+%p
+  %b Disabled:
+  = @carpark.disabled
+
+= link_to 'Edit', edit_carpark_path(@carpark)
+\|
+= link_to 'Back', carparks_path
