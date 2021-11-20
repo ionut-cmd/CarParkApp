@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations or /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.user_reservations(current_user)
   end
 
   # GET /reservations/1 or /reservations/1.json
@@ -23,6 +23,7 @@ class ReservationsController < ApplicationController
   # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.user = current_user
 
     respond_to do |format|
       if @reservation.save

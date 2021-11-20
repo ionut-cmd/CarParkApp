@@ -1,6 +1,5 @@
 class CarparksController < ApplicationController
   before_action :set_carpark, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
 
   # GET /carparks or /carparks.json
   def index
