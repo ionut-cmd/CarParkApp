@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_122222) do
+ActiveRecord::Schema.define(version: 2021_11_20_145717) do
 
   create_table "carparks", force: :cascade do |t|
     t.string "location", null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_122222) do
     t.integer "disabled", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["location"], name: "index_carparks_on_location", unique: true
   end
 
   create_table "reservations", force: :cascade do |t|
