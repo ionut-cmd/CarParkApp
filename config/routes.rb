@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :carparks
   resources :reservations
   root 'home#home'
