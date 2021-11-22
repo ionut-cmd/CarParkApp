@@ -1,4 +1,4 @@
-= form_for @reservation do |f|
+= form_for  @reservation do |f|
   - if @reservation.errors.any?
     #error_explanation
       %h2= "#{pluralize(@reservation.errors.count, "error")} prohibited this reservation from being saved:"
@@ -22,4 +22,6 @@
     = f.label :duration
     = f.number_field :duration, class: "form-control", style: "width: auto"
   .actions
-    = f.submit 'Save', class: "btn btn-light active"
+    = f.submit 'Save',  class: "btn btn-light active"
+
+    = link_to 'Hide', reservations_path, class: "btn btn-light active"

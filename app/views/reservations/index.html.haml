@@ -13,17 +13,7 @@
       %th
 
   %tbody
-    - @reservations.each do |reservation|
-      %tr
-        %td= reservation.location
-        %td= reservation.bay_type
-        %td= reservation.vehicle_registration
-        %td= reservation.start.strftime("%H:%M")
-        %td= reservation.duration
-        %td= link_to 'Show', reservation
-        %td= link_to 'Edit', edit_reservation_path(reservation)
-        %td= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }
-
+    = render @reservations
 %br
-
-= link_to 'New Reservation', new_reservation_path, class: "btn btn-light active"
+#new_reservation
+  = link_to 'New Reservation', new_reservation_path, remote: true, class: "btn btn-light active"
