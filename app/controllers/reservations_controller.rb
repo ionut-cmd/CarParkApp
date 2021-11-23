@@ -69,4 +69,6 @@ class ReservationsController < ApplicationController
     def reservation_params
       params.require(:reservation).permit(:location, :bay_type, :vehicle_registration, :start, :duration)
     end
+
+
 end

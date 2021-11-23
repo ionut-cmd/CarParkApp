@@ -15,5 +15,17 @@
   %tbody
     = render @reservations
 %br
-#new_reservation
-  = link_to 'New Reservation', new_reservation_path, remote: true, class: "btn btn-light active"
+%div.row
+  %div.col-sm-6
+    #new_reservation
+      = link_to 'New Reservation', new_reservation_path, remote: true, class: "btn btn-light active"
+
+
+  %div.col-sm-6
+    .card{:style => "width: 18rem;"}
+      %img.card-img-top{:alt => "...", :src => "https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-150px.png"}/
+      .card-body
+        %h5.card-title Total ammount
+        <!-- calculates and displays the total amout a user has to pay for parking sessions -->
+        %p= number_to_currency(@reservations.sum( :price ), :unit =>"£")
+        %a.btn.btn-primary{:href => "https://www.paypal.com/uk/webapps/mpp/paypal-popup", :target=>"blank"} Pay now
