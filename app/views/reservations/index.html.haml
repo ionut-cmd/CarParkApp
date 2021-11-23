@@ -1,5 +1,17 @@
-%h1 Listing reservations
 
+.card.text-center
+  .card-header
+    Price list
+  .card-body
+    %p.card-text  1  hr  ........................... £1.20
+    %p.card-text 1-2 hr  ........................... £2.00
+    %p.card-text 2-4 hr  ........................... £3.60
+    %p.card-text all day ........................... £5.70
+  .card-footer.text-muted
+    something here
+
+
+%h1 Listing reservations
 %table.table.table-hover
   %thead.table-dark
     %tr
@@ -15,6 +27,9 @@
   %tbody
     = render @reservations
 %br
+
+
+
 %div.row
   %div.col-sm-6
     #new_reservation
