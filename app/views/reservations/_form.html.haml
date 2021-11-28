@@ -8,10 +8,13 @@
 
   .field
     = f.label :location
-    = f.text_field :location, class: "form-control", style: "width: auto"
+    -#= f.text_field :location, class: "form-control", style: "width: auto"
+    = f.select :location, options_for_select(["airport", "hotel", "retail_park", "park_and_ride"]), {prompt: "Choose location"}, class: "form-select form-select-lg mb-3 form-control", style: "width: auto"
   .field
     = f.label :bay_type
-    = f.text_field :bay_type, class: "form-control", style: "width: auto"
+    -#= f.text_field :bay_type, class: "form-control", style: "width: auto"
+    = f.select :bay_type, options_for_select(["normal", "green", "disabled"]), {prompt: "Choose bay type"}, class: "form-select form-select-lg mb-3 form-control", style: "width: auto"
+
   .field
     = f.label :vehicle_registration
     = f.text_field :vehicle_registration, class: "form-control", style: "width: auto"

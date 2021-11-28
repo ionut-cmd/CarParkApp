@@ -2,6 +2,11 @@ class Reservation < ApplicationRecord
   # belongs_to :carpark
   belongs_to :user
 
+  # custom validators
+validate :validate_bay
+validate :validate_availability
+
+
   validates :location, presence: true
   validates :bay_type, presence: true
   validates :vehicle_registration, presence: true, length: {minimum: 6}, format: { with: /\A[0-9a-zA-Z]+\z/,
@@ -24,4 +29,42 @@ class Reservation < ApplicationRecord
     end
   end
 
+# Returns the green or disabled available spaces
+  def get_carpark_bay
+    case location
+    when 'airport'
+      my_index = 1
+    when 'hospital'
+      my_index = 2
+    when 'retail_park'
+      my_index = 3
+    when 'park_and_ride'
+      my_index = 4
+    end
+    @carpark = Carpark.find(my_index)
+
+    case bay_type
+    when 'green'
+      return @carpark.green
+    when 'disabled'
+      return @carpark.disabled
+    else
+      return 1
+    end
+  end
+
+
+
+# Custom validation to chech if there are any green spacees available in carpark
+  def validate_bay
+    if get_carpark_bay <= 0
+      errors.add(:bay_type, "not available in the #{location} carpark")
+    end
+  end
+
+  def validate_availability
+    if @carpark.available <= 0
+      errors.add(:location, "no more sapces available at #{location}")
+    end
+  end
 end

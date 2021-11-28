@@ -20,10 +20,8 @@ class ReservationsController < ApplicationController
   def edit
   end
 
-  # POST /reservations or /reservations.json
-  def create
-    @reservation = Reservation.new(reservation_params)
-    @reservation.user = current_user
+  # returns current carpark
+  def get_parking_lot
     case @reservation.location
     when 'airport'
       my_index = 1
@@ -34,11 +32,29 @@ class ReservationsController < ApplicationController
     when 'park_and_ride'
       my_index = 4
     end
-
     @carpark = Carpark.find(my_index)
-    new_availability = @carpark.available - 1
-    @carpark.update(available: new_availability)
+  end
 
+
+  # POST /reservations or /reservations.json
+  def create
+    @reservation = Reservation.new(reservation_params)
+    @reservation.user = current_user
+
+    # Update the available spaces in the carpark
+    if @reservation.save
+      new_availability = get_parking_lot.available - 1
+      @carpark.update(available: new_availability)
+
+      case @reservation.bay_type
+      when 'green'
+        green_avl = get_parking_lot.green - 1
+        @carpark.update(green: green_avl)
+      when 'disabled'
+        disabled_avl  = get_parking_lot.disabled - 1
+        @carpark.update(disabled: disabled_avl)
+      end
+    end
     respond_to do |format|
       if @reservation.save
         format.js
@@ -66,20 +82,19 @@ class ReservationsController < ApplicationController
 
   # DELETE /reservations/1 or /reservations/1.json
   def destroy
-
-    case @reservation.location
-    when 'airport'
-      my_index = 1
-    when 'hospital'
-      my_index = 2
-    when 'retail_park'
-      my_index = 3
-    when 'park_and_ride'
-      my_index = 4
-    end
-    @carpark = Carpark.find(my_index)
-    new_availability = @carpark.available + 1
+    # update carpark availability
+    new_availability = get_parking_lot.available + 1
     @carpark.update(available: new_availability)
+
+    # update bay_type availability
+    case @reservation.bay_type
+    when 'green'
+      green_avl = get_parking_lot.green + 1
+      @carpark.update(green: green_avl)
+    when 'disabled'
+      disabled_avl  = get_parking_lot.disabled + 1
+      @carpark.update(disabled: disabled_avl)
+    end
 
 
     @reservation.destroy

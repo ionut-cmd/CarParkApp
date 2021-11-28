@@ -37,6 +37,9 @@ class CarparksController < ApplicationController
 
   # PATCH/PUT /carparks/1 or /carparks/1.json
   def update
+    if @carpark.errors.count > 0
+      format.json { render json: @carpark.errors, status: :unprocessable_entity }
+    end
     respond_to do |format|
       if @carpark.update(carpark_params)
         format.html { redirect_to @carpark, notice: "Carpark was successfully updated." }
