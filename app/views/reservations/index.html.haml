@@ -13,7 +13,7 @@
 
 %h1 Listing reservations
 %table.table.table-hover
-  %thead.table-dark
+  %thead
     %tr
       %th Location
       %th Bay type
@@ -44,3 +44,7 @@
         <!-- calculates and displays the total amout a user has to pay for parking sessions -->
         %p= number_to_currency(@reservations.sum( :price ), :unit =>"£")
         %a.btn.btn-primary{:href => "https://www.paypal.com/uk/webapps/mpp/paypal-popup", :target=>"blank"} Pay now
+%br
+%br
+%br
+%br

@@ -11,6 +11,7 @@ class Reservation < ApplicationRecord
 
   before_save :calculate_price
 
+
   def calculate_price
     if duration == 1
       self.price = 1.2
