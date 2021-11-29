@@ -3,8 +3,8 @@ class Reservation < ApplicationRecord
   belongs_to :user
 
   # custom validators
-validate :validate_bay
-validate :validate_availability
+validate :validate_bay, on: :create
+validate :validate_availability, on: :create
 
 
   validates :location, presence: true
@@ -16,7 +16,7 @@ validate :validate_availability
 
   before_save :calculate_price
 
-
+# Calculates sesion price
   def calculate_price
     if duration == 1
       self.price = 1.2
