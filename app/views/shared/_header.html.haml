@@ -1,32 +1,32 @@
-.card.text-center.bg-light
-  .card-header
-    %ul.nav.nav-tabs.card-header-tabs
-      %li.nav-item
-        =link_to 'Home', '/'
-      %li.nav-item
-        =link_to 'Contact', '/contact'
+%header.p-3.bg-dark.text-white
+  .container
+    .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+      %a.d-flex.align-items-center.mb-2.mb-lg-0.text-white.text-decoration-none{:href => "/"}
 
-      %li.nav-item
-        =link_to 'About us', '/about'
-
-      %li.nav-item
-        =link_to 'Reservations', '/reservations'
-      %li.nav-item
-        =link_to 'Carparks', '/carparks'
-
-      - if user_signed_in?
-
-
-        %li.nav-item
-          =link_to t('profile'), edit_user_registration_path
-        %li.nav-item
-          =link_to t('logout'), destroy_user_session_path, method: 'delete'
-        %li.nav-item
-          ="#{current_user.email}"
-      - else
-
-        %li.nav-item
-          =link_to t('login'), new_user_session_path
-        %li.nav-item
-          =link_to t('sign_up'), new_user_registration_path
+      %ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+        %li
+          %a.nav-link.px-2.text-secondary{:href => "/"} Home
+        %li
+          %a.nav-link.px-2.text-white{:href => "/reservations"} Reservations
+        %li
+          %a.nav-link.px-2.text-white{:href => "/about"} About us
+        %li
+          %a.nav-link.px-2.text-white{:href => "/contact"} Contact
+        %li
+          %a.nav-link.px-2.text-white{:href => "/carparks"} Carparks
+      %form.col-12.col-lg-auto.mb-3.mb-lg-0.me-lg-3
+        %input.form-control.form-control-dark{"aria-label" => "Search", :placeholder => "Search...", :type => "search"}/
+      .text-end
+        - if user_signed_in?
+          %button.btn.btn-outline-light.me-2
+            =link_to t('profile'), edit_user_registration_path
+          %button.btn.btn-outline-light.me-2.btn-warning
+            =link_to t('logout'), destroy_user_session_path, method: 'delete'
+          %li.nav-item
+            ="#{current_user.email}"
+        -else
+          %button.btn.btn-outline-light.me-2
+            =link_to t('login'), new_user_session_path
+          %button.btn.btn-warning
+            =link_to t('sign_up'), new_user_registration_path
 %br

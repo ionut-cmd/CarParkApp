@@ -12,16 +12,22 @@
  *
  *= require_tree .
  *= require_self
+ *
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
  $font: 'Times New Roman', 'Times', serif;
  $color: #FFFFFF;
  body {
+
    // margin: 0;
    // padding: 0;
    // height: 100%;
+  
   font-family: $font;
  }
 
