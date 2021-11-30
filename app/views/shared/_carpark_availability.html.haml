@@ -21,9 +21,9 @@
               %i.fas.fa-parking.fa-5x
             .card-body
               %h5.card-title.text-primary= c.location.capitalize.sub(/([_])/, ' ')
-              %p.card-text= c.available.to_s.prepend('Total: ')
+              %p.card-text= c.available.to_s.prepend('Total: ').concat(' spaces')
               %p.card-text
-              %p.card-text= c.green.to_s.prepend('Electric: ')
+              %p.card-text= c.green.to_s.prepend('Electric: ').concat(' spaces')
               %p.card-text
-              %p.card-text= c.disabled.to_s.prepend('Disabled: ')
+              %p.card-text= c.disabled.to_s.prepend('Disabled: ').concat(' spaces')
               %p.card-text

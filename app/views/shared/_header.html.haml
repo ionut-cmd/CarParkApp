@@ -11,24 +11,24 @@
               %path{:d => "M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z", "fill-rule" => "evenodd"}
             Home
         %li
-          %a.nav-link.px-2.text-white{:href => "/reservations"}
+          %a.nav-link.px-2.text-custom{:href => "/reservations"}
             %svg.bi.bi-calendar-event{:fill => "currentColor", :height => "18", :viewbox => "0 0 16 16", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
               %path{:d => "M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"}
               %path{:d => "M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"}
             Reservations
         %li
-          %a.nav-link.px-2.text-white{:href => "/about"}
+          %a.nav-link.px-2.text-custom{:href => "/about"}
             %svg.bi.bi-award{:fill => "currentColor", :height => "18", :viewbox => "0 0 16 16", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
               %path{:d => "M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z"}
               %path{:d => "M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"}
             About us
         %li
-          %a.nav-link.px-2.text-white{:href => "/contact"}
+          %a.nav-link.px-2.text-custom{:href => "/contact"}
             %svg.bi.bi-chat-right-dots-fill{:fill => "currentColor", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
               %path{:d => "M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"}
             Contact
         %li
-          %a.nav-link.px-2.text-white{:href => "/carparks"} Carparks
+          %a.nav-link.px-2.text-custom{:href => "/carparks"} Carparks
       .text-end
         - if user_signed_in?
           %button.btn.btn-outline-light.me-2
@@ -38,7 +38,7 @@
 
           %button.btn.btn-outline-light.me-2.btn-warning
             =link_to t('logout'), destroy_user_session_path, method: 'delete'
-          %li.nav-item
+          %li.nav-item.text-custom
             ="#{current_user.email}"
         -else
           %button.btn.btn-outline-light.me-2

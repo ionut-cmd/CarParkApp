@@ -38,11 +38,10 @@ li:hover{
   color: #3B7080;
 
 }
-// reservation
-
-div.park_avail{
-  background-color: #EDF6F9;
+.text-custom{
+  color: #FFDDD2;
 }
+// reservation
 
 .card-header{
   background-color: #184E77;
@@ -66,4 +65,7 @@ div.park_top{
 }
 .white-bg{
   background-color: #FFFFFC;
+}
+.card{
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }

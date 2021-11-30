@@ -5,20 +5,23 @@
   %div
     =render('shared/price_list')
 
+  .container.container-fluid
+    %h1
+      %svg.bi.bi-list{:fill => "currentColor", :height => "22", :viewbox => "0 0 16 16", :width => "22", :xmlns => "http://www.w3.org/2000/svg"}
+        %path{:d => "M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z", "fill-rule" => "evenodd"}
+      Listing reservations
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Location
+          %th Bay type
+          %th Vehicle registration
+          %th Start
+          %th Duration
+          %th
 
-  %h1 Listing reservations
-  %table.table.table-hover
-    %thead
-      %tr
-        %th Location
-        %th Bay type
-        %th Vehicle registration
-        %th Start
-        %th Duration
-        %th
-
-    %tbody
-      = render @reservations
+      %tbody
+        = render @reservations
   %br
 
 
