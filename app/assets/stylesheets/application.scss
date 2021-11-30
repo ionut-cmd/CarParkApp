@@ -27,10 +27,43 @@
    // margin: 0;
    // padding: 0;
    // height: 100%;
-
+  background-color: #F0EFEB;
   font-family: $font;
  }
 
  td, th {
   padding: 5px;
  }
+li:hover{
+  color: #3B7080;
+
+}
+// reservation
+
+div.park_avail{
+  background-color: #EDF6F9;
+}
+
+.card-header{
+  background-color: #184E77;
+}
+.card-body.price_l{
+  background-color: #FFFFFC;
+}
+.card-footer{
+  background-color: #DFE7FD;
+}
+
+.duck_egg{
+  background-color:  #FFFFFC;
+}
+.gap{
+  grid-column-gap: 16px;
+}
+
+div.park_top{
+  background-color: white;
+}
+.white-bg{
+  background-color: #FFFFFC;
+}

@@ -1,20 +1,29 @@
-%div
-  .card-group
-    - Carpark.all.each do |c|
-      .card.bg-light
-        - if c.location == 'airport'
-          %i.fas.fa-plane-departure.fa-5x
-        - elsif c.location == 'hospital'
-          %i.far.fa-hospital.fa-5x
-        - elsif c.location == 'retail_park'
-          %i.fas.fa-store-alt.fa-5x
-        - else c.location == 'park_and_ride'
-          %i.fas.fa-parking.fa-5x
-        .card-body
-          %h5.card-title.text-primary= c.location.capitalize.sub(/([_])/, ' ')
-          %p.card-text= c.available.to_s.prepend('Total: ')
-          %p.card-text
-          %p.card-text= c.green.to_s.prepend('Electric: ')
-          %p.card-text
-          %p.card-text= c.disabled.to_s.prepend('Disabled: ')
-          %p.card-text
+.container.container-fluid.white-bg
+  %div.park_avail
+    %h2
+      %svg.bi.bi-geo-alt{:fill => "currentColor", :height => "20", :viewbox => "0 0 16 16", :width => "20", :xmlns => "http://www.w3.org/2000/svg"}
+        %path{:d => "M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"}
+        %path{:d => "M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"}
+      Our locations and availability
+
+
+    %div
+      .card-group.gap
+        - Carpark.all.each do |c|
+          .card.duck_egg.border-0
+            - if c.location == 'airport'
+              %i.fas.fa-plane-departure.fa-5x
+            - elsif c.location == 'hospital'
+              %i.far.fa-hospital.fa-5x
+            - elsif c.location == 'retail_park'
+              %i.fas.fa-store-alt.fa-5x
+            - else c.location == 'park_and_ride'
+              %i.fas.fa-parking.fa-5x
+            .card-body
+              %h5.card-title.text-primary= c.location.capitalize.sub(/([_])/, ' ')
+              %p.card-text= c.available.to_s.prepend('Total: ')
+              %p.card-text
+              %p.card-text= c.green.to_s.prepend('Electric: ')
+              %p.card-text
+              %p.card-text= c.disabled.to_s.prepend('Disabled: ')
+              %p.card-text

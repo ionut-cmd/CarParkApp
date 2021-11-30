@@ -22,21 +22,21 @@
   %br
 
 
+  .container.container-fluid
+    %div.row.duck_egg
+      %div.col-sm-6
+        #new_reservation
+          = link_to 'New Reservation', new_reservation_path, remote: true, class: "btn btn-light active"
 
-  %div.row.bg-light
-    %div.col-sm-6
-      #new_reservation
-        = link_to 'New Reservation', new_reservation_path, remote: true, class: "btn btn-light active"
 
-
-    %div.col-sm-6
-      .card{:style => "width: 11rem; margin-left:auto; margin-right: 5rem"}
-        %i.fab.fa-cc-paypal.fa-5x
-        .card-body
-          %h5.card-title Total ammount
-          <!-- calculates and displays the total amout a user has to pay for parking sessions -->
-          %p.text-primary= number_to_currency(@reservations.sum( :price ), :unit =>"£")
-          %a.btn.btn-dark.text-warning{:href => "https://www.paypal.com/uk/webapps/mpp/paypal-popup", :target=>"_blank"} Pay now
+      %div.col-sm-6
+        .card.duck_egg.border-0{:style => "width: 11rem; margin-left:auto; margin-right: 5rem"}
+          %i.fab.fa-cc-paypal.fa-5x{:style => "margin-left: 1.5rem;"}
+          .card-body.duck_egg
+            %h5.card-title Total ammount
+            <!-- calculates and displays the total amout a user has to pay for parking sessions -->
+            %p.text-primary= number_to_currency(@reservations.sum( :price ), :unit =>"£")
+            %a.btn.btn-dark.text-warning{:href => "https://www.paypal.com/uk/webapps/mpp/paypal-popup", :target=>"_blank", :style => "margin-left: 1rem;"} Pay now
   %br
   %br
   %br
