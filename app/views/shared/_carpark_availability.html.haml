@@ -1,31 +1,20 @@
 %div
-
   .card-group
-    .card.bg-light
-      %i.fas.fa-plane-departure.fa-5x
-      .card-body
-        %h5.card-title Airport
-        %p.card-text This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-        %p.card-text
-          %small.text-muted Last updated 3 mins ago
-    .card.bg-light
-      %i.far.fa-hospital.fa-5x
-      .card-body
-        %h5.card-title Hospital
-        %p.card-text This card has supporting text below as a natural lead-in to additional content.
-        %p.card-text
-          %small.text-muted Last updated 3 mins ago
-    .card.bg-light
-      %i.fas.fa-store-alt.fa-5x
-      .card-body
-        %h5.card-title Retail Park
-        %p.card-text This is a wider card with supporting text below as a natural lead-in to additional content.
-        %p.card-text
-          %small.text-muted Last updated 3 mins ago
-    .card.bg-light
-      %i.fas.fa-parking.fa-5x
-      .card-body
-        %h5.card-title Park And Ride
-        %p.card-text This is a wider card with supporting text below as a natural lead-in to additional content.
-        %p.card-text
-          %small.text-muted Last updated 3 mins ago
+    - Carpark.all.each do |c|
+      .card.bg-light
+        - if c.location == 'airport'
+          %i.fas.fa-plane-departure.fa-5x
+        - elsif c.location == 'hospital'
+          %i.far.fa-hospital.fa-5x
+        - elsif c.location == 'retail_park'
+          %i.fas.fa-store-alt.fa-5x
+        - else c.location == 'park_and_ride'
+          %i.fas.fa-parking.fa-5x
+        .card-body
+          %h5.card-title.text-primary= c.location.capitalize.sub(/([_])/, ' ')
+          %p.card-text= c.available.to_s.prepend('Total: ')
+          %p.card-text
+          %p.card-text= c.green.to_s.prepend('Electric: ')
+          %p.card-text
+          %p.card-text= c.disabled.to_s.prepend('Disabled: ')
+          %p.card-text

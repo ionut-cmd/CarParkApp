@@ -36,7 +36,7 @@
           %h5.card-title Total ammount
           <!-- calculates and displays the total amout a user has to pay for parking sessions -->
           %p.text-primary= number_to_currency(@reservations.sum( :price ), :unit =>"£")
-          %a.btn.btn-dark{:href => "https://www.paypal.com/uk/webapps/mpp/paypal-popup", :target=>"blank"} Pay now
+          %a.btn.btn-dark.text-warning{:href => "https://www.paypal.com/uk/webapps/mpp/paypal-popup", :target=>"_blank"} Pay now
   %br
   %br
   %br
