@@ -1,21 +1,26 @@
-%h1= t('.title')
-%p= t('.contact_us')
+.container.container-fluid
+  %h1= t('.title')
+  %p= t('.contact_us')
+  %div.row.duck_egg
+    %div.col-sm-6
+      = form_tag request_contact_path, class: "form-floating.mb3", method: 'post' do
+        = label_tag :name, t('.name')
+        = text_field_tag :name, '', title: t('.enter_name'), class: "form-control", style: "width: auto", :placeholder => "name"
 
-= form_tag request_contact_path, class: "form-floating.mb3", method: 'post' do
-  = label_tag :name, t('.name')
-  = text_field_tag :name, '', title: t('.enter_name'), class: "form-control", style: "width: auto", :placeholder => "name"
+        = label_tag :email, t('.email')
 
-  = label_tag :email, t('.email')
+        = email_field_tag :email, '', title: t('.enter_email'), class: "form-control", style: "width: auto", :placeholder => "name@example.com"
 
-  = email_field_tag :email, '', title: t('.enter_email'), class: "form-control", style: "width: auto", :placeholder => "name@example.com"
+        = label_tag :telephone, t('.telephone')
+        = telephone_field_tag :telephone, '', title: t('.enter_telephone'), class: "form-control", style: "width: auto", placeholder: "+44"
 
-  = label_tag :telephone, t('.telephone')
-  = telephone_field_tag :telephone, '', title: t('.enter_telephone'), class: "form-control", style: "width: auto", placeholder: "+44"
-
-  = label_tag :message, t('.message')
-  = text_field_tag :message, '', title: t('.enter_message'), class: "form-control",style: "height: 100px; width: 400px", :placeholder => "Leave a comment here"
+        = label_tag :message, t('.message')
+        = text_field_tag :message, '', title: t('.enter_message'), class: "form-control",style: "height: 100px; width: 200px", :placeholder => "Leave a comment here"
 
 
 
-  %br
-  = submit_tag t('.submit'), class: "btn btn-light active"
+        %br
+        = submit_tag t('.submit'), class: "btn btn-light active"
+      %br
+    %div.col-sm-6
+      %iframe{:allowfullscreen => "", :height => "300", :loading => "lazy", :src => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79928.86383709135!2d-0.635634156085822!3d51.241601817789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4875c4afb79659df%3A0x946699b2f9eba8a1!2sGuildford!5e0!3m2!1sen!2suk!4v1638355867212!5m2!1sen!2suk", :style => "border:0;"}

@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+TODO
+* add map to contact
+* link to Reservations from carpark_availability
+* Heroku Deployment

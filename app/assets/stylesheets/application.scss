@@ -22,11 +22,12 @@
 
  $font: 'Times New Roman', 'Times', serif;
  $color: #FFFFFF;
+
  body {
 
-   // margin: 0;
-   // padding: 0;
-   // height: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
   background-color: #F0EFEB;
   font-family: $font;
  }
@@ -68,4 +69,54 @@ div.park_top{
 }
 .card{
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.card:hover{
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+
+// Google map
+
+iframe{
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+  padding: 0;
+  width: auto;
+  margin-left: auto;
+}
+
+iframe:hover{
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+
+// About page
+
+.about_h1{
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.about_h2{
+   color: #b48608;
+   font-family: 'Droid serif', serif;
+   font-size: 36px; font-weight: 400;
+   font-style: italic;
+   line-height: 44px;
+   margin: 0 0 12px;
+   text-align: center;
+}
+
+.about_p{
+  color: #22223b;
+  font-family: 'Verdana', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  text-indent: 30px;
+  margin: 0;
+}
+.about_i{
+  position: relative;
+  text-align: right;
+
 }
