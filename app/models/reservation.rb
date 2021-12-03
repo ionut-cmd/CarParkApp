@@ -1,7 +1,6 @@
 class Reservation < ApplicationRecord
   # belongs_to :carpark
   belongs_to :user
-
   # custom validators
 validate :validate_bay, on: :create
 validate :validate_availability, on: :create
@@ -13,7 +12,6 @@ validate :validate_availability, on: :create
     message: "only allows letters and numbers" }
   validates :duration, presence: true, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 24, only_integer: true}
   scope :user_reservations, ->(user) { where(['user_id = ?', user.id]) }
-
   before_save :calculate_price
 
 # Calculates sesion price
@@ -31,17 +29,7 @@ validate :validate_availability, on: :create
 
 # Returns the green or disabled available spaces
   def get_carpark_bay
-    case location
-    when 'airport'
-      my_index = 1
-    when 'hospital'
-      my_index = 2
-    when 'retail_park'
-      my_index = 3
-    when 'park_and_ride'
-      my_index = 4
-    end
-    @carpark = Carpark.find(my_index)
+    @carpark = Carpark.find_or_create_by(location: location )
 
     case bay_type
     when 'green'

@@ -22,17 +22,7 @@ class ReservationsController < ApplicationController
 
   # returns current carpark
   def get_parking_lot
-    case @reservation.location
-    when 'airport'
-      my_index = 1
-    when 'hospital'
-      my_index = 2
-    when 'retail_park'
-      my_index = 3
-    when 'park_and_ride'
-      my_index = 4
-    end
-    @carpark = Carpark.find(my_index)
+    @carpark = Carpark.find_or_create_by(location: @reservation.location )
   end
 
 

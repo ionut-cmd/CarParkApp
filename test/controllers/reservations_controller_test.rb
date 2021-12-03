@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class ReservationsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+
     @reservation = reservations(:one)
+    @user = users(:one)
+    sign_in @user
+
   end
 
   test "should get index" do
@@ -17,7 +22,7 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reservation" do
     assert_difference('Reservation.count') do
-      post reservations_url, params: { reservation: { bay_type: @reservation.bay_type, duration: @reservation.duration, location: @reservation.location, start: @reservation.start, vehicle_registration: @reservation.vehicle_registration } }
+      post reservations_url, params: { reservation: { bay_type: @reservation.bay_type, duration: @reservation.duration, location: @reservation.location, start: @reservation.start, vehicle_registration: @reservation.vehicle_registration} }
     end
 
     assert_redirected_to reservation_url(Reservation.last)

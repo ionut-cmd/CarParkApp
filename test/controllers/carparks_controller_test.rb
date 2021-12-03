@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class CarparksControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
     @carpark = carparks(:one)
   end
@@ -17,7 +18,7 @@ class CarparksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create carpark" do
     assert_difference('Carpark.count') do
-      post carparks_url, params: { carpark: { available: @carpark.available, disabled: @carpark.disabled, green: @carpark.green, location: @carpark.location, total: @carpark.total } }
+      post carparks_url, params: { carpark: { available: @carpark.available, disabled: @carpark.disabled, green: @carpark.green, location: @carpark.location + "test", total: @carpark.total } }
     end
 
     assert_redirected_to carpark_url(Carpark.last)

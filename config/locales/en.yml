@@ -41,7 +41,7 @@ en:
     contact:
       title: Contact Us
       contact_us: Complete to get in touch.
-      
+
       name: "Name:"
       enter_name: Enter your name
       email: "Email"
@@ -58,4 +58,4 @@ en:
 
     about:
       title: About us
-      about_us: About our business
+      
