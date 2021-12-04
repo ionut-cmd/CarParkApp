@@ -1,6 +1,6 @@
 class CarparksController < ApplicationController
   before_action :set_carpark, only: %i[ show edit update destroy ]
-
+  before_action :check_admin
   # GET /carparks or /carparks.json
   def index
     @carparks = Carpark.all
@@ -70,4 +70,11 @@ class CarparksController < ApplicationController
     def carpark_params
       params.require(:carpark).permit(:location, :available, :total, :green, :disabled)
     end
+
+    def check_admin
+      unless current_user.admin
+        redirect_to root_path, notice: "Not Authorized!"
+      end
+    end
+
 end
