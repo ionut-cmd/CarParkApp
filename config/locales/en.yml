@@ -37,6 +37,8 @@ en:
     home:
       title: Car Park Booking Services
       welcome: Welcome!
+      price_list: Price list
+    
 
     contact:
       title: Contact Us
@@ -58,4 +60,3 @@ en:
 
     about:
       title: About us
-      
