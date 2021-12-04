@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-gem 'bundler', '2.2.28'
+# gem 'bundler', '2.2.28'
 begin
   load File.expand_path('../spring', __FILE__)
 rescue LoadError => e
