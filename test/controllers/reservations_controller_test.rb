@@ -21,8 +21,11 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create reservation" do
+    # increase the start time for each reservation created 
+    add_time = 30
     assert_difference('Reservation.count') do
-      post reservations_url, params: { reservation: { bay_type: @reservation.bay_type, duration: @reservation.duration, location: @reservation.location, start: @reservation.start, vehicle_registration: @reservation.vehicle_registration} }
+      add_time = add_time * 2
+      post reservations_url, params: { reservation: { bay_type: @reservation.bay_type, duration: @reservation.duration, location: @reservation.location, start: @reservation.start+ add_time.minutes, vehicle_registration: @reservation.vehicle_registration} }
     end
 
     assert_redirected_to reservation_url(Reservation.last)

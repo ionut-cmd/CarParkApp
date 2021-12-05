@@ -4,4 +4,5 @@
   %td= reservation.vehicle_registration
   %td= reservation.start.strftime("%H:%M")
   %td= reservation.duration
+  %td= reservation.fisnish.strftime("%H:%M")
   %td= link_to 'Cancel booking', reservation, method: :delete, data: { confirm: 'Are you sure?' }

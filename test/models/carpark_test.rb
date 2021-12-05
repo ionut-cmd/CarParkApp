@@ -7,6 +7,8 @@ class CarparkTest < ActionController::TestCase
   # end
   setup do
     @carpark = carparks(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   test 'empty carpark not saved' do

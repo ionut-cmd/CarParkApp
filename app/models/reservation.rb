@@ -2,8 +2,9 @@ class Reservation < ApplicationRecord
   # belongs_to :carpark
   belongs_to :user
   # custom validators
-validate :validate_bay, on: :create
-validate :validate_availability, on: :create
+  validate :validate_bay, on: :create
+  validate :validate_availability, on: :create
+  validate :validate_time_availability, on: :create
 
 
   validates :location, presence: true
@@ -28,6 +29,7 @@ validate :validate_availability, on: :create
     end
   end
 
+# Calculates finsh_time
   def calculate_finish
     finsh_time = duration * 60
     self.fisnish = start + finsh_time.minutes
@@ -59,11 +61,31 @@ validate :validate_availability, on: :create
     if @carpark.available <= 0
       errors.add(:location, "no more sapces available at #{location}")
     end
+
   end
 
-  def validate_interval
-    @reservations = Reservation.all
-    for r in @reservations
+
+  def validate_time_availability
+    all_reservations = Reservation.all
+    times = Array.new
+    for rez in all_reservations
+      finish_time = (rez.fisnish.hour)
+      times.push(finish_time)
+    end
+
+    if Reservation.exists?
+      start_time = (start.hour)
+      times.sort
+      if start_time >= times.last
+        valid = true
+      else
+        valid = false
+      end
+    end
+
+
+    if valid == false
+      errors.add(:start, "You have overlapping rezervations, please select different start time")
     end
   end
 end

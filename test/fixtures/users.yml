@@ -7,9 +7,13 @@
 one:
   email: one@yahoo.com
   encrypted_password: password1
+  admin: true
+
 # column: value
 #
 two:
   email: two@yahoo.com
   encrypted_password: password2
+  admin: true
+
 # column: value

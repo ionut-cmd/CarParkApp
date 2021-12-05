@@ -6,12 +6,14 @@ one:
   bay_type: normal
   vehicle_registration: AA10BBB
   start: 2021-11-17 16:28:49
-  duration: 2
+  fisnish: 2021-11-17 17:28:49
+  duration: 1
 
 two:
   user: two
   location: test2
   bay_type: normal
   vehicle_registration: CC10DDD
-  start: 2021-11-17 16:28:49
-  duration: 2
+  start: 2021-11-17 20:28:49
+  fisnish: 2021-11-17 21:28:49
+  duration: 1

@@ -17,6 +17,7 @@ class ReservationTest < ActionController::TestCase
     my_reservation = Reservation.new
     my_reservation.location = 'test1'
     my_reservation.bay_type = 'normal'
+    my_reservation.start = '2021-11-17 20:28:49'
     my_reservation.user = @user
     my_reservation.save
 
@@ -30,8 +31,8 @@ class ReservationTest < ActionController::TestCase
     my_reservation.location = 'test1'
     my_reservation.bay_type = 'normal'
     my_reservation.vehicle_registration = 'AA10BBB'
-    my_reservation.start = '2021-11-17 16:28:49'
-    my_reservation.duration = 2
+    my_reservation.start = '2021-11-17 20:28:49'
+    my_reservation.duration = 1
     my_reservation.user = @user
 
     my_reservation.save
