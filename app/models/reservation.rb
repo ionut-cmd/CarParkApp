@@ -64,16 +64,17 @@ class Reservation < ApplicationRecord
 
   end
 
-
+# cheks for overlapping reservations, very weakly
   def validate_time_availability
-    all_reservations = Reservation.all
+    all_reservations = Reservation.where(user_id: user_id)
     times = Array.new
+
     for rez in all_reservations
       finish_time = (rez.fisnish.hour)
       times.push(finish_time)
     end
 
-    if Reservation.exists?
+    if all_reservations.exists?
       start_time = (start.hour)
       times.sort
       if start_time >= times.last
