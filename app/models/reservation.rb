@@ -13,6 +13,7 @@ validate :validate_availability, on: :create
   validates :duration, presence: true, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 24, only_integer: true}
   scope :user_reservations, ->(user) { where(['user_id = ?', user.id]) }
   before_save :calculate_price
+  before_save :calculate_finish
 
 # Calculates sesion price
   def calculate_price
@@ -27,6 +28,10 @@ validate :validate_availability, on: :create
     end
   end
 
+  def calculate_finish
+    finsh_time = duration * 60
+    self.fisnish = start + finsh_time.minutes
+  end
 # Returns the green or disabled available spaces
   def get_carpark_bay
     @carpark = Carpark.find_or_create_by(location: location )
@@ -53,6 +58,12 @@ validate :validate_availability, on: :create
   def validate_availability
     if @carpark.available <= 0
       errors.add(:location, "no more sapces available at #{location}")
+    end
+  end
+
+  def validate_interval
+    @reservations = Reservation.all
+    for r in @reservations
     end
   end
 end
