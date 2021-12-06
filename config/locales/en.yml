@@ -38,7 +38,21 @@ en:
       title: Car Park Booking Services
       welcome: Welcome!
       price_list: Price list
-    
+
+    carparks:
+      location: Location
+      available: Available
+      total: Total
+      green: Green
+      disabled: Disabled
+      
+    reservations:
+      location: Location
+      bay_type: Bay Type
+      vehicle_registration: Vehicle registration
+      start: Start
+      duration: Duration
+      finish: Finish
 
     contact:
       title: Contact Us
